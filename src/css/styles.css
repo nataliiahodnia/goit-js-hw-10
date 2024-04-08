@@ -152,7 +152,9 @@ button:disabled {
 }
 /* #endregion CALENDAR */
 
-.iziToast-body{ margin-top: auto;}
+.iziToast-body {
+  margin-top: auto;
+}
 
 /* #region SNACKBAR */
 
@@ -165,11 +167,15 @@ button[type='submit'] {
   margin-top: 24px;
 }
 
-.form label {
+button[type='submit']:hover {
+  background: #6c8cff;
+}
+
+/* .form label[type='number'] {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
+} */
 
 input[type='number'] {
   border: 1px solid #808080;
@@ -187,26 +193,29 @@ input[type='number'] {
   padding: 8px 16px;
 
   margin-top: 8px;
+  display: flex;
+  margin-bottom: 16px;
 }
 
 fieldset {
+  border: 1px solid #808080;
   border-radius: 4px;
-  stroke-width: 1px;
-  stroke: #808080;
   width: 360px;
-height: 78px;
+  height: 78px;
+  outline: none;
 
-margin-bottom: 16px; /* Відступ від нижнього краю контейнера радіо кнопок */
-display: flex; /* Встановлюємо grid контейнер */
-align-items: center;
-grid-template-columns: repeat(2, auto); /* Розміщуємо 2 колонки з рівномірним розподілом */
-column-gap: 16px; /* Відступ між колонками */
-
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 0;
 }
 
 input[type='radio'] {
-  border: 1px solid #757575;
-border-radius: 14px;
-width: 20px;
-height: 20px;
+  border-radius: 14px;
+  width: 20px;
+  height: 20px;
+}
+
+.form fieldset label {
+  display: flex;
 }

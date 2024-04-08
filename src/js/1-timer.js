@@ -31,10 +31,11 @@ const updateTimer = () => {
 
   if (difference <= 0) {
     clearInterval(countdownInterval);
-    startButton.removeAttribute('disabled');
     iziToast.error({
       title: 'Error',
       message: 'The countdown has finished!',
+      position: 'topRight',
+      backgroundColor: '#ef4040',
     });
     return;
   }
@@ -60,6 +61,8 @@ const convertMs = ms => {
   return { days, hours, minutes, seconds };
 };
 
+startButton.setAttribute('disabled', true);
+
 const initTimer = () => {
   flatpickr(datetimePicker, {
     enableTime: true,
@@ -70,10 +73,11 @@ const initTimer = () => {
       userSelectedDate = selectedDates[0];
       const currentDate = new Date();
       if (userSelectedDate <= currentDate) {
-        startButton.setAttribute('disabled', true);
         iziToast.error({
           title: 'Error',
           message: 'Please choose a date in the future',
+          position: 'topRight',
+          backgroundColor: '#ef4040',
         });
       } else {
         startButton.removeAttribute('disabled');
@@ -82,9 +86,9 @@ const initTimer = () => {
   });
 
   startButton.addEventListener('click', () => {
-    clearInterval(countdownInterval);
-    countdownInterval = setInterval(updateTimer, 1000);
     startButton.setAttribute('disabled', true);
+    // clearInterval(countdownInterval);
+    countdownInterval = setInterval(updateTimer, 1000);
   });
 };
 

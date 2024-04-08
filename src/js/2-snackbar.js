@@ -1,9 +1,9 @@
-import iziToast from "izitoast";
-import "izitoast/dist/css/iziToast.min.css";
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
-const form = document.querySelector(".form");
+const form = document.querySelector('.form');
 
-form.addEventListener("submit", (event) => {
+form.addEventListener('submit', event => {
   event.preventDefault();
 
   const delay = parseInt(form.delay.value);
@@ -12,28 +12,29 @@ form.addEventListener("submit", (event) => {
 
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (state === "fulfilled") {
+      if (state === 'fulfilled') {
         resolve(delay);
-      } else if (state === "rejected") {
+      } else if (state === 'rejected') {
         reject(delay);
       }
     }, delay);
   });
 
-  // Обробка результатів промісу
   promise
-    .then((delay) => {
-
+    .then(delay => {
       iziToast.success({
-        title: "✅ Fulfilled promise",
+        title: 'OK Fulfilled promise',
         message: `Promise fulfilled in ${delay}ms`,
+        position: 'topRight',
+        backgroundColor: '#59a10d',
       });
     })
-    .catch((delay) => {
-
+    .catch(delay => {
       iziToast.error({
-        title: "❌ Rejected promise",
+        title: 'Error: Rejected promise',
         message: `Promise rejected in ${delay}ms`,
+        position: 'topRight',
+        backgroundColor: '#ef4040',
       });
     });
 });
