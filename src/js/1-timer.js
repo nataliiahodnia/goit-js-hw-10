@@ -9,7 +9,7 @@ const elements = {
   daysElement: document.querySelector('[data-days]'),
   hoursElement: document.querySelector('[data-hours]'),
   minutesElement: document.querySelector('[data-minutes]'),
-  secondsElement: document.querySelector('[data-seconds]'),
+  secondsElement: document.querySelector('[data-seconds]')
 };
 
 let userSelectedDate = null;
@@ -62,7 +62,7 @@ elements.startButton.setAttribute('disabled', true);
 flatpickr(elements.datetimePicker, {
   enableTime: true,
   time_24hr: true,
-  defaultDate: Date.now(),
+  defaultDate: Date.now(), 
   onClose(selectedDates) {
     userSelectedDate = selectedDates[0].getTime();
     const currentDate = Date.now();
@@ -79,78 +79,3 @@ elements.startButton.addEventListener('click', () => {
   elements.startButton.setAttribute('disabled', true);
   countdownInterval = setInterval(updateTimer, 1000);
 });
-
-// const datetimePicker = document.getElementById('datetime-picker');
-// const startButton = document.querySelector('[data-start]');
-// const daysElement = document.querySelector('[data-days]');
-// const hoursElement = document.querySelector('[data-hours]');
-// const minutesElement = document.querySelector('[data-minutes]');
-// const secondsElement = document.querySelector('[data-seconds]');
-
-// let userSelectedDate = null;
-// let countdownInterval = null;
-
-// const addLeadingZero = value => (value < 10 ? `0${value}` : value);
-
-// const updateTimer = () => {
-//   const currentDate = Date.now();
-//   const difference = userSelectedDate - currentDate;
-
-//   if (difference <= 0) {
-//     clearInterval(countdownInterval);
-//     showErrorToast('The countdown has finished!');
-//     return;
-//   }
-
-//   const { days, hours, minutes, seconds } = convertMs(difference);
-//   daysElement.textContent = addLeadingZero(days);
-//   hoursElement.textContent = addLeadingZero(hours);
-//   minutesElement.textContent = addLeadingZero(minutes);
-//   secondsElement.textContent = addLeadingZero(seconds);
-// };
-
-// const showErrorToast = message => {
-//   iziToast.error({
-//     title: 'Error',
-//     message: message,
-//     position: 'topRight',
-//     backgroundColor: '#ef4040',
-//   });
-// };
-
-// const convertMs = ms => {
-//   const second = 1000;
-//   const minute = second * 60;
-//   const hour = minute * 60;
-//   const day = hour * 24;
-
-//   const days = Math.floor(ms / day);
-//   const hours = Math.floor((ms % day) / hour);
-//   const minutes = Math.floor(((ms % day) % hour) / minute);
-//   const seconds = Math.floor((((ms % day) % hour) % minute) / second);
-
-//   return { days, hours, minutes, seconds };
-// };
-
-// startButton.setAttribute('disabled', true);
-
-// flatpickr(datetimePicker, {
-//   enableTime: true,
-//   time_24hr: true,
-//   defaultDate: Date.now(),
-//   onClose(selectedDates) {
-//     userSelectedDate = selectedDates[0].getTime();
-//     const currentDate = Date.now();
-//     if (userSelectedDate <= currentDate) {
-//       showErrorToast('Please choose a date in the future');
-//     } else {
-//       startButton.removeAttribute('disabled');
-//     }
-//     datetimePicker.disabled = true;
-//   },
-// });
-
-// startButton.addEventListener('click', () => {
-//   startButton.setAttribute('disabled', true);
-//   countdownInterval = setInterval(updateTimer, 1000);
-// });
