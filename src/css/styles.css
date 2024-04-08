@@ -30,10 +30,9 @@
 body {
   margin-top: 36px;
   margin-left: 156px;
-  /* background: #e6e6e9; */
 }
 
-/*  & #region MAIN PAGE */
+/* #region MAIN PAGE */
 
 .main-button {
   display: flex;
@@ -63,6 +62,7 @@ body {
 
 /* #endregion MAIN PAGE*/
 
+/* #region TIMER */
 .timer {
   display: flex;
   /* justify-content: center; */
@@ -104,6 +104,7 @@ input {
   border-radius: 4px;
   width: 272px;
   height: 40px;
+  margin-right: 8px;
 
   font-family: Montserrat;
   font-weight: 400;
@@ -111,7 +112,7 @@ input {
   line-height: 150%;
   letter-spacing: 0.04em;
   color: #2e2f42;
-  cursor: not-allowed; 
+  cursor: not-allowed;
 }
 
 button {
@@ -128,7 +129,7 @@ button {
   letter-spacing: 0.04em;
   color: #fff;
 
-  margin-left: 8px;
+  /* margin-left: 8px; */
 }
 
 button:hover {
@@ -139,13 +140,73 @@ button:disabled {
   background: #cfcfcf;
   color: #989898;
 }
+/* #endregion Timer */
 
-/*  */
+/* #region CALENDAR */
 
 .flatpickr-rContainer,
 .numInputWrapper,
 .flatpickr-months,
-.flatpickr-time.time24hr
-{
+.flatpickr-time.time24hr {
   background: #f5f5f5;
+}
+/* #endregion CALENDAR */
+
+.iziToast-body{ margin-top: auto;}
+
+/* #region SNACKBAR */
+
+button[type='submit'] {
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 360px;
+  height: 40px;
+  background: #4e75ff;
+  margin-top: 24px;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+input[type='number'] {
+  border: 1px solid #808080;
+  border-radius: 4px;
+  width: 360px;
+  height: 40px;
+
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+
+  padding: 8px 16px;
+
+  margin-top: 8px;
+}
+
+fieldset {
+  border-radius: 4px;
+  stroke-width: 1px;
+  stroke: #808080;
+  width: 360px;
+height: 78px;
+
+margin-bottom: 16px; /* Відступ від нижнього краю контейнера радіо кнопок */
+display: flex; /* Встановлюємо grid контейнер */
+align-items: center;
+grid-template-columns: repeat(2, auto); /* Розміщуємо 2 колонки з рівномірним розподілом */
+column-gap: 16px; /* Відступ між колонками */
+
+}
+
+input[type='radio'] {
+  border: 1px solid #757575;
+border-radius: 14px;
+width: 20px;
+height: 20px;
 }
