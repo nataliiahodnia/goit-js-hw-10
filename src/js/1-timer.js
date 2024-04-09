@@ -76,7 +76,6 @@ flatpickr(elements.datetimePicker, {
   },
 });
 
-
 elements.startButton.addEventListener('click', () => {
   elements.startButton.setAttribute('disabled', true);
   countdownInterval = setInterval(updateTimer, 1000);
