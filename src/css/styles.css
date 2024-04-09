@@ -144,12 +144,12 @@ button:disabled {
 
 /* #region CALENDAR */
 
-/* .flatpickr-rContainer,
+.flatpickr-rContainer,
 .numInputWrapper,
 .flatpickr-months,
 .flatpickr-time.time24hr {
   background: #f5f5f5;
-} */
+}
 /* #endregion CALENDAR */
 
 /* .iziToast-body {
