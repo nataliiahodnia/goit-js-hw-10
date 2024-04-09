@@ -9,7 +9,7 @@ const elements = {
   daysElement: document.querySelector('[data-days]'),
   hoursElement: document.querySelector('[data-hours]'),
   minutesElement: document.querySelector('[data-minutes]'),
-  secondsElement: document.querySelector('[data-seconds]')
+  secondsElement: document.querySelector('[data-seconds]'),
 };
 
 let userSelectedDate = null;
@@ -24,7 +24,6 @@ const updateTimer = () => {
   if (difference <= 0) {
     clearInterval(countdownInterval);
     showErrorToast('The countdown has finished!');
-    elements.datetimePicker.disabled = true; 
     return;
   }
 
@@ -40,7 +39,7 @@ const showErrorToast = message => {
     title: 'Error',
     message: message,
     position: 'topRight',
-    backgroundColor: '#ef4040'
+    backgroundColor: '#ef4040',
   });
 };
 
@@ -63,7 +62,7 @@ elements.startButton.setAttribute('disabled', true);
 flatpickr(elements.datetimePicker, {
   enableTime: true,
   time_24hr: true,
-  defaultDate: Date.now(), 
+  defaultDate: Date.now(),
   onClose(selectedDates) {
     userSelectedDate = selectedDates[0].getTime();
     const currentDate = Date.now();
@@ -72,7 +71,7 @@ flatpickr(elements.datetimePicker, {
     } else {
       elements.startButton.removeAttribute('disabled');
     }
-    elements.datetimePicker = true;
+    elements.datetimePicker.disabled = true;
   },
 });
 
