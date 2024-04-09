@@ -39,7 +39,6 @@ const showSuccessToast = message => {
     title: 'Success',
     message: message,
     position: 'topRight',
-    // backgroundColor: '#ef4040',
   });
 };
 
@@ -92,20 +91,11 @@ flatpickr(elements.datetimePicker, {
     }
 
     toggleInputState();
-    
-    // if (!countdownInterval) {
-      // toggleInputState();
-      // elements.startButton.removeAttribute('disabled');
-      // elements.datetimePicker.disabled = true;
-    // }
-
-    // 
-    // elements.datetimePicker.querySelector('.flatpickr-hour').removeAttribute('disabled');
   },
 });
 
 elements.startButton.addEventListener('click', () => {
-  // elements.startButton.setAttribute('disabled', 'disabled');
+
   countdownInterval = setInterval(updateTimer, 1000);
   
   toggleInputState();
