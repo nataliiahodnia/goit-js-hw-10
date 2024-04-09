@@ -24,6 +24,7 @@ const updateTimer = () => {
   if (difference <= 0) {
     clearInterval(countdownInterval);
     showErrorToast('The countdown has finished!');
+    elements.datetimePicker.disabled = true; 
     return;
   }
 
@@ -71,7 +72,7 @@ flatpickr(elements.datetimePicker, {
     } else {
       elements.startButton.removeAttribute('disabled');
     }
-    elements.datetimePicker.disabled = true;
+    elements.datetimePicker = true;
   },
 });
 
