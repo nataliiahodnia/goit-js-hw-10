@@ -112,7 +112,7 @@ input {
   line-height: 150%;
   letter-spacing: 0.04em;
   color: #2e2f42;
-  cursor: not-allowed;
+  cursor: pointer;
 }
 
 button {

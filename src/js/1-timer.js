@@ -23,7 +23,7 @@ const updateTimer = () => {
 
   if (difference <= 0) {
     clearInterval(countdownInterval);
-    showErrorToast('The countdown has finished!');
+    showSuccessToast('The countdown has finished!');
     return;
   }
 
@@ -34,6 +34,15 @@ const updateTimer = () => {
   elements.secondsElement.textContent = addLeadingZero(seconds);
 };
 
+const showSuccessToast = message => {
+  iziToast.success({
+    title: 'Success',
+    message: message,
+    position: 'topRight',
+    // backgroundColor: '#ef4040',
+  });
+};
+
 const showErrorToast = message => {
   iziToast.error({
     title: 'Error',
@@ -41,6 +50,16 @@ const showErrorToast = message => {
     position: 'topRight',
     backgroundColor: '#ef4040',
   });
+};
+
+const toggleInputState = () => {
+  if (countdownInterval) {
+    elements.datetimePicker.disabled = true;
+    elements.startButton.setAttribute('disabled', 'disabled');
+  } else {
+    elements.datetimePicker.disabled = false;
+    elements.startButton.removeAttribute('disabled');
+  }
 };
 
 const convertMs = ms => {
@@ -66,17 +85,28 @@ flatpickr(elements.datetimePicker, {
   onClose(selectedDates) {
     userSelectedDate = selectedDates[0].getTime();
     const currentDate = Date.now();
+
     if (userSelectedDate <= currentDate) {
       showErrorToast('Please choose a date in the future');
-    } else {
-      elements.startButton.removeAttribute('disabled');
+      return;
     }
-    elements.datetimePicker.disabled = true;
-    elements.datetimePicker.querySelector('.flatpickr-hour').removeAttribute('disabled');
+
+    toggleInputState();
+    
+    // if (!countdownInterval) {
+      // toggleInputState();
+      // elements.startButton.removeAttribute('disabled');
+      // elements.datetimePicker.disabled = true;
+    // }
+
+    // 
+    // elements.datetimePicker.querySelector('.flatpickr-hour').removeAttribute('disabled');
   },
 });
 
 elements.startButton.addEventListener('click', () => {
-  elements.startButton.setAttribute('disabled', true);
+  // elements.startButton.setAttribute('disabled', 'disabled');
   countdownInterval = setInterval(updateTimer, 1000);
+  
+  toggleInputState();
 });
