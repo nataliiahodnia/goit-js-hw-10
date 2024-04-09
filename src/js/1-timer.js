@@ -66,14 +66,16 @@ flatpickr(elements.datetimePicker, {
   onClose(selectedDates) {
     userSelectedDate = selectedDates[0].getTime();
     const currentDate = Date.now();
-    elements.datetimePicker.disabled = true;
     if (userSelectedDate <= currentDate) {
       showErrorToast('Please choose a date in the future');
     } else {
       elements.startButton.removeAttribute('disabled');
     }
+    elements.datetimePicker.disabled = true;
+    elements.datetimePicker.querySelector('.flatpickr-hour').removeAttribute('disabled');
   },
 });
+
 
 elements.startButton.addEventListener('click', () => {
   elements.startButton.setAttribute('disabled', true);
