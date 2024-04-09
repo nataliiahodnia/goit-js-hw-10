@@ -177,7 +177,7 @@ button[type='submit']:hover {
   align-items: flex-start;
 } */
 
-input[type='number'] {
+label input[type='number'] {
   border: 1px solid #808080;
   border-radius: 4px;
   width: 360px;
